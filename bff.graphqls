@@ -1,0 +1,49 @@
+type Query {
+    students: [Student]
+    teachers: [Teacher]
+    lessons: [Lesson]
+    getLessonById(id: ID!): Lesson
+    getTeacherById(id: ID!): Teacher
+    getStudentById(id: ID!): Student
+}
+
+type Mutation {
+    saveLesson(name: String): Lesson
+    saveTeacher(input: TeacherInput): Teacher
+    saveStudent(input: StudentInput): Student
+}
+
+type Lesson {
+    id: ID!
+    name: String
+}
+
+type Teacher {
+    id: ID!
+    name: String
+    sex: String
+    age: Int
+    lessons: [Lesson]
+}
+
+input TeacherInput {
+    name: String
+    sex: String
+    age: Int
+    lessons: [ID]
+}
+
+type Student {
+    id: ID!
+    name: String
+    sex: String
+    age: Int
+    lessons: [Lesson]
+}
+
+input StudentInput {
+    name: String
+    sex: String
+    age: Int
+    lessons: [ID]
+}
