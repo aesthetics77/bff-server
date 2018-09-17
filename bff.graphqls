@@ -1,14 +1,14 @@
 type Query {
-    students: [Student]
-    teachers: [Teacher]
     lessons: [Lesson]
-    getLessonById(id: ID!): Lesson
-    getTeacherById(id: ID!): Teacher
-    getStudentById(id: ID!): Student
+    teachers: [Teacher]
+    students: [Student]
+    lesson(id: ID!): Lesson
+    teacher(id: ID!): Teacher
+    student(id: ID!): Student
 }
 
 type Mutation {
-    saveLesson(name: String): Lesson
+    saveLesson(input: LessonInput): Lesson
     saveTeacher(input: TeacherInput): Teacher
     saveStudent(input: StudentInput): Student
 }
@@ -26,19 +26,24 @@ type Teacher {
     lessons: [Lesson]
 }
 
-input TeacherInput {
-    name: String
-    sex: String
-    age: Int
-    lessons: [ID]
-}
-
 type Student {
     id: ID!
     name: String
     sex: String
     age: Int
     lessons: [Lesson]
+}
+
+input LessonInput {
+    name: String
+    teacher: ID
+}
+
+input TeacherInput {
+    name: String
+    sex: String
+    age: Int
+    lessons: [ID]
 }
 
 input StudentInput {
