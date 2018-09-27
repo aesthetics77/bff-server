@@ -51,12 +51,4 @@ export default {
             return getLessonByCurrentTypeId('student', student.id)
         }
     }
-    // saveLesson: saveLesson,
-    // getLessonById: getLessonById,
-    // getTeacherById: getTeacherById,
-    // getStudentById: getStudentById,
-    // saveTeacher: saveTeacher,
-    // students: students,
-    // lessons: lessons,
-    // teachers: getTeachers()
 }
